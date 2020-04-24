@@ -76,6 +76,6 @@ func DFS(n *html.Node, padding string) {
 	}
 	fmt.Println(padding, msg)
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		dfs(c, padding+"  ")
+		DFS(c, padding+"  ")
 	}
 }
