@@ -33,7 +33,7 @@ func linkNodes(n *html.Node) []*html.Node {
 	}
 	var ret []*html.Node
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		ret := append(ret, linkNodes(c)...)
+		ret = append(ret, linkNodes(c)...)
 	}
 
 	return ret
