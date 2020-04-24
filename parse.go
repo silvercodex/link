@@ -20,7 +20,7 @@ func Parse(r io.Reader) ([]Link, error) {
 	if err != nil {
 		return nil, err
 	}
-	dfs(doc)
+	dfs(doc, "")
 	return nil, nil
 }
 
