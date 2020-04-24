@@ -29,6 +29,21 @@ func Parse(r io.Reader) ([]Link, error) {
 	return links, nil
 }
 
+func text(n *html.Node) string {
+	if n.Type == html.TextNode {
+		return n.Data
+	}
+	if n.Type != html.ElementNode {
+		return ""
+	}
+
+	var ret string
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		ret += text(c) + " "
+	}
+	return ret
+}
+
 func buildLink(n *html.Node) Link {
 	var ret Link
 	for _, attr := range n.Attr {
@@ -37,7 +52,7 @@ func buildLink(n *html.Node) Link {
 			break
 		}
 	}
-	ret.Text = "TODO: Parse the Text..."
+	ret.Text = text(n)
 	return ret
 }
 
