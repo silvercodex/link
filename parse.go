@@ -69,7 +69,7 @@ func linkNodes(n *html.Node) []*html.Node {
 	return ret
 }
 
-func dfs(n *html.Node, padding string) {
+func DFS(n *html.Node, padding string) {
 	msg := n.Data
 	if n.Type == html.ElementNode {
 		msg = "<" + msg + ">"
