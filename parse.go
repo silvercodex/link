@@ -25,7 +25,7 @@ func Parse(r io.Reader) ([]Link, error) {
 }
 
 func dfs(n *html.Node, padding string) {
-	msg = n.Data
+	msg := n.Data
 	if n.Type == html.ElementNode {
 		msg = "<" + msg + ">"
 	}
